@@ -129,6 +129,10 @@ final class PhotoLibraryService {
                                                      PHAssetMediaType.video.rawValue)
             }
         }
+
+        // Needs to add an option here onlyScreenshot.
+        fetchOptions.predicate = NSPredicate(format: "mediaSubtype == %d",
+                                             PHAssetMediaSubtype.photoScreenshot.rawValue)
         
         let fetchResult = PHAsset.fetchAssets(with: fetchOptions)
 
